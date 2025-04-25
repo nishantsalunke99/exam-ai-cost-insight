@@ -18,10 +18,10 @@ const MONTHS = [
 const History = () => {
   const { records, clearHistory } = useHistory();
   const [filters, setFilters] = useState({
-    university: "",
-    subject: "",
+    university: "all-universities",
+    subject: "all-subjects",
     students: "",
-    month: "",
+    month: "all-months",
     date: "",
   });
 
@@ -54,10 +54,10 @@ const History = () => {
       }
       
       return (
-        (!filters.university || record.universityName === filters.university) &&
-        (!filters.subject || record.subject === filters.subject) &&
+        (filters.university === "all-universities" || record.universityName === filters.university) &&
+        (filters.subject === "all-subjects" || record.subject === filters.subject) &&
         (!filters.students || record.students.toString() === filters.students) &&
-        (!filters.month || recordMonth === filters.month) &&
+        (filters.month === "all-months" || recordMonth === filters.month) &&
         dateMatch
       );
     });
@@ -69,10 +69,10 @@ const History = () => {
 
   const resetFilters = () => {
     setFilters({
-      university: "",
-      subject: "",
+      university: "all-universities",
+      subject: "all-subjects",
       students: "",
-      month: "",
+      month: "all-months",
       date: "",
     });
   };
@@ -112,7 +112,7 @@ const History = () => {
                   <SelectValue placeholder="All Universities" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Universities</SelectItem>
+                  <SelectItem value="all-universities">All Universities</SelectItem>
                   {uniqueUniversities.map((uni) => (
                     <SelectItem key={uni} value={uni}>
                       {uni}
@@ -133,7 +133,7 @@ const History = () => {
                   <SelectValue placeholder="All Subjects" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Subjects</SelectItem>
+                  <SelectItem value="all-subjects">All Subjects</SelectItem>
                   {uniqueSubjects.map((sub) => (
                     <SelectItem key={sub} value={sub}>
                       {sub}
@@ -166,7 +166,7 @@ const History = () => {
                   <SelectValue placeholder="All Months" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Months</SelectItem>
+                  <SelectItem value="all-months">All Months</SelectItem>
                   {MONTHS.map((month) => (
                     <SelectItem key={month} value={month}>
                       {month}
