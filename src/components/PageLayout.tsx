@@ -1,4 +1,3 @@
-
 import React from "react";
 import Header from "@/components/Header";
 import { useLocation } from "react-router-dom";
@@ -10,6 +9,7 @@ interface PageLayoutProps {
 }
 
 const PageLayout = ({ children, className }: PageLayoutProps) => {
+  // We'll keep the useLocation hook here, but make sure PageLayout is rendered inside Router in App.tsx
   const location = useLocation();
   const isLoginPage = location.pathname === "/login";
 

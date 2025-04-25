@@ -22,11 +22,11 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-      <ThemeProvider>
-        <AuthProvider>
-          <HistoryProvider>
-            <TooltipProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <HistoryProvider>
+          <TooltipProvider>
+            <BrowserRouter>
               <PageLayout>
                 <Routes>
                   <Route path="/" element={<Index />} />
@@ -64,11 +64,11 @@ const App = () => (
               </PageLayout>
               <Toaster />
               <Sonner />
-            </TooltipProvider>
-          </HistoryProvider>
-        </AuthProvider>
-      </ThemeProvider>
-    </BrowserRouter>
+            </BrowserRouter>
+          </TooltipProvider>
+        </HistoryProvider>
+      </AuthProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 
