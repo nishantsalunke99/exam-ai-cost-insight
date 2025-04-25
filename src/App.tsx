@@ -23,10 +23,10 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
-      <AuthProvider>
-        <HistoryProvider>
-          <TooltipProvider>
-            <BrowserRouter>
+      <BrowserRouter>
+        <AuthProvider>
+          <HistoryProvider>
+            <TooltipProvider>
               <PageLayout>
                 <Routes>
                   <Route path="/" element={<Index />} />
@@ -64,10 +64,10 @@ const App = () => (
               </PageLayout>
               <Toaster />
               <Sonner />
-            </BrowserRouter>
-          </TooltipProvider>
-        </HistoryProvider>
-      </AuthProvider>
+            </TooltipProvider>
+          </HistoryProvider>
+        </AuthProvider>
+      </BrowserRouter>
     </ThemeProvider>
   </QueryClientProvider>
 );
